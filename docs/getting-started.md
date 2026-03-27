@@ -23,7 +23,7 @@ After completeing the installation, Seally can be imported into a Python file:
 import Seally as sly
 ```
 
-For more information on the Seally Library and its features visit the [Documentation](api.md) page.
+For more information on the Seally Library and its features visit the [Documentation](documentation.md) page.
 
 ## Example
 Let's try using some of Seally's core functionality to get a better idea of how the library works.
