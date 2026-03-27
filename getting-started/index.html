@@ -536,10 +536,13 @@
 <p>For more information on the Seally Library and its features visit the <a href="../documentation/">Documentation</a> page.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>Let's try using some of Seally's core functionality to get a better idea of how the library works.</p>
-<p>In this example we will:
-- Load an enviroment from a file.
-- Perform A* search on the loaded enviroment to find the shortest path between two points.
-- Visualize the path using the Seally visualization tools.</p>
+<p>In this example we will:</p>
+<ul>
+<li>Load an enviroment from a file.</li>
+<li>Perform A* search on the loaded enviroment to find the shortest path between two points.</li>
+<li>Visualize the path using the Seally visualization tools.</li>
+</ul>
+<hr />
 <ol>
 <li>
 <p><strong>Add Necessary Imports</strong>: 
@@ -552,7 +555,7 @@ First, let's import the components of Seally that we will need to create an envi
 </li>
 <li>
 <p><strong>Load an enviroment from a file</strong>: 
-To perform planning we first need an environment and a discretization of that environment. In this example, we are going to use the A<em> algorithm. A</em> is well suited for grid environments and in Seally, A* works on GridMap environments.
+To perform planning we first need an environment and a discretization of that environment. In this example, we are going to use the A* algorithm. A* is well suited for grid environments and in Seally, A* works on GridMap environments.
     <div class="highlight"><pre><span></span><code><span class="c1"># Create an enviroment from a map file</span>
 <span class="n">env</span><span class="p">:</span> <span class="n">GridMap</span> <span class="o">=</span> <span class="n">GridMap</span><span class="p">(</span><span class="n">gen_random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;./maps/map7.csv&#39;</span><span class="p">)</span>
 </code></pre></div></p>
@@ -566,7 +569,7 @@ Next, we need to define a planner that we can use to find a path between points 
 </li>
 <li>
 <p><strong>Generate a Path between two positions</strong>: 
-Finally, we can generate a path by defining a start and goal position in the environment and running the A<em> algorithm on these positions. A</em> returns a Path which is a Tuple of GridCells.
+Finally, we can generate a path by defining a start and goal position in the environment. Then we run the A* algorithm on these positions. A* returns a Path which is a Tuple of GridCells.
     <div class="highlight"><pre><span></span><code><span class="c1"># Define the source and goal positions</span>
 <span class="n">source</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">goal</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
