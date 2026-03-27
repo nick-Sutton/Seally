@@ -1,0 +1,41 @@
+site_name: Seally
+site_url: https://nick-Sutton.github.io/Seally/
+repo_url: https://github.com/nick-Sutton/Seally
+repo_name: nick-Sutton/Seally
+
+theme:
+  name: material
+  logo: assets/seal.png
+  favicon: assets/seal.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Documentation: documentation.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - toc:
+      permalink: true

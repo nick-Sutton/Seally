@@ -10,12 +10,16 @@ class AStar():
         self.heuristic = heuristic
 
     def cost(self, source: GridCell, goal: GridCell) -> float:
+        """
+        Computes the cost of going from one cell to another in the map
+        """
         dx, dy = abs(source.x - goal.x), abs(source.y - goal.y)
         return np.sqrt(2) if dx + dy == 2 else 1.0
 
     def compute_path(self, source: GridCell, goal: GridCell) -> Path:
         if not self.env.in_bounds(source) or self.env.is_occupied(source):
             raise Exception("Source is not a valid position")
+        
         if not self.env.in_bounds(goal) or self.env.is_occupied(goal):
             raise Exception("Goal is not a valid position")
 

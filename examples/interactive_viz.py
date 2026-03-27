@@ -5,7 +5,7 @@ from seally.viz.vizualizer import InteractiveVisualizer2D
 
 def main():
     # Create an enviroment from a map file
-    env: GridMap = GridMap(False, './maps/map1.csv')
+    env: GridMap = GridMap(False, './maps/map7.csv')
 
     # Create a planner and pass in the heuristic
     a_star = AStar(env, chebyshev_distance)

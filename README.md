@@ -1,8 +1,7 @@
-### Seally
-Seally is a planning library that I build to prototype planning algorithms. It currently supports static grid based enviroments.
+# Seally 🦭
 
-#### Todo
-- [ ] Create better visualization tools
-- [ ] Add enviroment builder
-- [ ] Add performance logging
-- [ ] Add Configuration space enviroments
+**A lightweight Python library for motion planning algorithms.**
+
+Seally provides a simple interface for testing, comparing, and teaching planning algorithms.
+
+![Seally in action](docs/assets/a_star_example.png)

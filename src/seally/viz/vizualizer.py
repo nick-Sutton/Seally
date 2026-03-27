@@ -7,7 +7,7 @@ from seally.common.path import Path
 class Visualizer2D:
     def __init__(self):
         pygame.init()
-        self.tile_size = 64
+        self.tile_size = 32
         self.padding = 40
         self.bg_color = (245, 240, 232)
         self.border_color = (180, 178, 172)

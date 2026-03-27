@@ -3,17 +3,37 @@ name = "seally"
 version = "0.1.0"
 description = "A simple planning library for prototyping "
 readme = "README.md"
-requires-python = ">=3.13"
+license = { text = "MIT" }
+requires-python = ">=3.11"
 dependencies = [
-    "networkx[default]>=3.6.1",
-    "numpy>=2.4.3",
-    "pandas>=3.0.1",
-    "pygame>=2.6.1",
+    "networkx[default]>=3.4",
+    "numpy>=2.0",
+    "pandas>=3.0",
+    "pygame>=2.6",
+]
+keywords = ["Motion Planning", "AI", "Robotics"]
+authors = [
+    { name = "Nicholas Sutton", email = "nicksutton46@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
 ]
 
+[project.urls]
+Homepage = "https://github.com/nick-Sutton/Seally"
+Documentation = "https://nick-Sutton.github.io/Seally/"
+Repository = "https://github.com/nick-Sutton/Seally"
 [build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/seally"] 
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.0,<2.0",
+    "mkdocs-material>=9.7.6",
+]

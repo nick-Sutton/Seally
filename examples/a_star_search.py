@@ -1,25 +1,24 @@
-from seally.common.path import Path
-from seally.common.heuristics import chebyshev_distance
 from seally.env.grid_map import GridMap, GridCell
 from seally.planners.a_star import AStar
+from seally.common.heuristics import chebyshev_distance
 from seally.viz.vizualizer import Visualizer2D
 
 def main():
     # Create an enviroment from a map file
-    env: GridMap = GridMap(False, './maps/map2.csv')
+    env: GridMap = GridMap(gen_random=False, file_path='./maps/map7.csv')
 
     # Create a planner and pass in the heuristic
-    a_star = AStar(env, chebyshev_distance)
+    a_star = AStar(env=env, heuristic=chebyshev_distance)
 
     # Define the source and goal positions
-    source = GridCell(0, 4)
-    goal = GridCell(11, 2)
+    source = GridCell(x=1, y=0)
+    goal = GridCell(x=26, y=26)
 
     # Find the shortest path from the start to the goal
-    path: Path = a_star.compute_path(source, goal)
+    path = a_star.compute_path(source, goal)
 
     # Visualize the path
-    viz = Visualizer2D(screen_size=(env.x_dim, env.y_dim))
+    viz = Visualizer2D()
     viz.run_visualization(path, env)
 
 
