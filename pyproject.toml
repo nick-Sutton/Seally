@@ -1,5 +1,5 @@
 [project]
-name = "sealy"
+name = "seally"
 version = "0.1.0"
 description = "A planning algorithm library for static and dynamic environments"
 readme = "README.md"
