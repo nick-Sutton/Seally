@@ -3,7 +3,16 @@ from typing import List
 import numpy as np
 import pandas as pd
 
-from seally.common.grid_cell import GridCell
+class GridCell():
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+
+    def __hash__(self):
+        return hash((self.x, self.y))
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
 
 class GridMap:
     def __init__(self, gen_random: bool = True, file_path: str = None):

@@ -1,8 +1,7 @@
 from collections.abc import Callable
 import heapq
 import numpy as np
-from seally.env.gridmap import GridMap
-from seally.common.grid_cell import GridCell
+from seally.env.grid_map import GridMap, GridCell
 from seally.common.path import Path
 
 class AStar():

@@ -1,9 +1,8 @@
 from typing import Tuple
 import numpy as np
 import pygame
-from seally.common.grid_cell import GridCell
+from seally.env.grid_map import GridMap, GridCell
 from seally.common.path import Path
-from seally.env.gridmap import GridMap
 
 class Visualizer2D:
     def __init__(self):

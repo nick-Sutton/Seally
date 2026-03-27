@@ -1,4 +1,4 @@
-from seally.common.grid_cell import GridCell
+from seally.env.grid_map import GridCell
 import numpy as np
 
 def euclidean_distance(source: GridCell, goal: GridCell) -> float:

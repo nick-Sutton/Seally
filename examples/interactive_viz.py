@@ -1,5 +1,5 @@
 from seally.common.heuristics import chebyshev_distance
-from seally.env.gridmap import GridMap
+from seally.env.grid_map import GridMap
 from seally.planners.a_star import AStar
 from seally.viz.vizualizer import InteractiveVisualizer2D
 

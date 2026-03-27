@@ -1,4 +1,4 @@
 from typing import List, Tuple, Union
-from seally.common.grid_cell import GridCell
+from seally.env.grid_map import GridCell
 
 Path = Union[List[GridCell], List[float]]

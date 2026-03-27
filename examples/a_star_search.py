@@ -1,7 +1,6 @@
-from seally.common.grid_cell import GridCell
 from seally.common.path import Path
 from seally.common.heuristics import chebyshev_distance
-from seally.env.gridmap import GridMap
+from seally.env.grid_map import GridMap, GridCell
 from seally.planners.a_star import AStar
 from seally.viz.vizualizer import Visualizer2D
 
