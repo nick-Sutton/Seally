@@ -2,7 +2,7 @@
 
 **A lightweight Python library for motion planning algorithms.**
 
-Seally provides a simple interface for testing, comparing, and teaching planning algorithms.
+Seally provides a simple interface for using, implementing, and testing planning algorithms.
 
 
 <div style="text-align: center; margin: 2em 0;">
