@@ -16,7 +16,7 @@ dist/
 build/
 *.egg
 
-# vs code
+# vscode
 .vscode/
 
 # MkDocs
