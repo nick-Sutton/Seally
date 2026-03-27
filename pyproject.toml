@@ -1,7 +1,7 @@
 [project]
 name = "seally"
 version = "0.1.0"
-description = "A planning algorithm library for static and dynamic environments"
+description = "A simple planning library for prototyping "
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -10,3 +10,10 @@ dependencies = [
     "pandas>=3.0.1",
     "pygame>=2.6.1",
 ]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,1 @@
+#https://theory.stanford.edu/~amitp/GameProgramming/Variations.html#jump-point-search

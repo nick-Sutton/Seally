@@ -8,3 +8,20 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Python build artifacts
+*.egg-info/
+.egg-fno
+dist/
+build/
+*.egg
+
+# vS code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+# Built Visual Studio Code Extensions
+*.vsix
