@@ -53,6 +53,12 @@ class WaveFront():
         Returns:
             The shortest path from source to goal.
         """
+
+        if not self.env.in_bounds(source) or self.env.is_occupied(source):
+            raise Exception("Source is not a valid position")
+        
+        if not self.env.in_bounds(goal) or self.env.is_occupied(goal):
+            raise Exception("Goal is not a valid position")
                 
         # Set the goals distance value in the wave_feild
         self.wave_field.map[goal.y, goal.x] = self._goal_dist
