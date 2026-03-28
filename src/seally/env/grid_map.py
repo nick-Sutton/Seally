@@ -1,10 +1,19 @@
 from typing import List
-
 import numpy as np
 import pandas as pd
 
 class GridCell():
+    """
+    Cell in a GridMap
+    """
     def __init__(self, x: int, y: int):
+        """
+        Initialize a GridCell Object.
+
+        Args:
+            x: The x position of the cell.
+            y: The y position of the cell.
+        """
         self.x = x
         self.y = y
 
@@ -15,7 +24,18 @@ class GridCell():
         return self.x == other.x and self.y == other.y
 
 class GridMap:
+    """
+    Grid based discritization of an enviroment. GridMaps store enviroments as a numpy array 
+    where the value at each cell is either 0 if the cell is free and 1 if it is occupied.
+    """
     def __init__(self, gen_random: bool = True, file_path: str = None):
+        """
+        Initialize a GridMap Object.
+
+        Args:
+            gen_random: Boolean for if the Map should be generated randomly.
+            file_path: Path to map file
+        """
         if gen_random:
             pass
         else:
@@ -26,19 +46,25 @@ class GridMap:
 
     def is_occupied(self, cell: GridCell) -> bool:
         """
-        Determines if the provided coordinates are in collision with an obstacle
+        Determines if the provided coordinates are in collision with an obstacle.
 
-        param: cell to check
-        return: True if the position is in collision
+        Args:
+            cell: Cell to check.
+
+        Returns: 
+            True if the position is in collision.
         """
         return self.map[cell.y, cell.x] > 0
     
     def in_bounds(self, cell: GridCell) -> bool:
         """
-        Determines if the provided coordinates within the bounds of the map
+        Determines if the provided coordinates within the bounds of the map.
 
-        param: cell to check
-        return: True if the position is in bounds
+        Args: 
+            cell: Cell to check.
+
+        Returns: 
+            True if the position is in bounds.
         """
 
         if cell.x < 0 or cell.x > self.x_dim - 1:
@@ -54,8 +80,11 @@ class GridMap:
         Retuns a list of all valid neighbors for a given cell in the Gripmap
         A valid cell is a cell that is within the bounds of the map.
 
-        params: cell to retrieve neighbors for
-        returns: A list of the cells valid neighbors
+        Args:
+            cell: The cell whose neighbors to retrieve.
+
+        Returns:
+            A list of the cells valid neighbors.
         """
 
         # create a mask of the indicies of the neighboring cells relative to the current cell        

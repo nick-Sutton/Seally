@@ -5,18 +5,47 @@ from seally.env.grid_map import GridMap, GridCell
 from seally.common.path import Path
 
 class AStar():
+    """
+    A* Algorithm for finding the shortest path between points in a GridMap.
+    """
     def __init__(self, env: GridMap, heuristic: Callable[[GridCell, GridCell], float]):
+        """
+        Initialize an A* Object.
+
+        Args:
+            env: A grid base enviroment.
+            heuristic: The "Cost to Go" heuristic. 
+        """
         self.env = env
         self.heuristic = heuristic
 
     def cost(self, source: GridCell, goal: GridCell) -> float:
         """
-        Computes the cost of going from one cell to another in the map
+        Computes the cost of going from the source cell the goal cell. 
+        For GridMaps the cost is sqrt(2) for diagonal cells and 1 otherwise.
+
+        Args:
+            source: The source cell in the GridMap.
+            goal: The goal cell in the GridMap.
+
+        Returns:
+            The cost of going from source to goal.
         """
         dx, dy = abs(source.x - goal.x), abs(source.y - goal.y)
         return np.sqrt(2) if dx + dy == 2 else 1.0
 
     def compute_path(self, source: GridCell, goal: GridCell) -> Path:
+        """
+        Computes the shortest path from the source GridCell to the goal GridCell using the A* Algorithm.
+
+        Args:
+            source: The source cell in the GridMap.
+            goal: The goal cell in the GridMap.
+
+        Returns:
+            The shortest path from source to goal.
+        """
+
         if not self.env.in_bounds(source) or self.env.is_occupied(source):
             raise Exception("Source is not a valid position")
         
