@@ -1,7 +1,7 @@
 [project]
 name = "seally"
 version = "0.1.0"
-description = "A simple planning library for prototyping "
+description = "A lightweight Python library for motion planning algorithms."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.11"

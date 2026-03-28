@@ -8,7 +8,7 @@ Seally provides a simple interface for using, implementing, and testing planning
 <div style="text-align: center; margin: 2em 0;">
   <a href="getting-started/" class="md-button md-button--primary">Getting Started</a>
   &nbsp;&nbsp;
-  <a href="api/" class="md-button">Reference</a>
+  <a href="reference/" class="md-button">Reference</a>
 </div>
 
 ![Seally in action](assets/a_star_example.png)
