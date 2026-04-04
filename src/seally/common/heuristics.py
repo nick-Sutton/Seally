@@ -1,7 +1,9 @@
-from seally.env.grid_map import GridCell
 import numpy as np
 
-def euclidean_distance(source: GridCell, goal: GridCell) -> float:
+from src.seally.env.enviroment import Position
+
+
+def euclidean_distance(source: Position, goal: Position) -> float:
     """
     Computes the Euclidean distance between the source and goal GridCells.
 
@@ -12,14 +14,9 @@ def euclidean_distance(source: GridCell, goal: GridCell) -> float:
     Returns:
         The Euclidean distance between the source and goal GridCells.
     """
-    source_mat = np.array((source.x, source.y))
-    goal_mat = np.array((goal.x, goal.y))
+    return float(np.linalg.norm(source.dim_array - goal.dim_array))
 
-    dist = np.linalg.norm(source_mat - goal_mat)
-
-    return dist
-
-def manhattan_distance(source: GridCell, goal: GridCell) -> float:
+def manhattan_distance(source: Position, goal: Position) -> float:
     """
     Computes the Manhattan distance between the source and goal GridCells.
 
@@ -30,14 +27,9 @@ def manhattan_distance(source: GridCell, goal: GridCell) -> float:
     Returns:
         The Manhattan distance between the source and goal GridCells.
     """
-    source_mat = np.array((source.x, source.y))
-    goal_mat = np.array((goal.x, goal.y))
+    return float(np.sum(np.abs(source.dim_array - source.dim_array)))
 
-    dist = np.sum(np.abs(source_mat - goal_mat))
-
-    return dist
-
-def chebyshev_distance(source: GridCell, goal: GridCell) -> float:
+def chebyshev_distance(source: Position, goal: Position) -> float:
     """
     Computes the Chebyshev distance between the source and goal GridCells.
 
@@ -48,16 +40,4 @@ def chebyshev_distance(source: GridCell, goal: GridCell) -> float:
     Returns:
         The Chebyshev distance between the source and goal GridCells.
     """
-    source_mat = np.array((source.x, source.y))
-    goal_mat = np.array((goal.x, goal.y))
-
-    dist = np.linalg.norm(source_mat - goal_mat, ord=np.inf)
-
-    return dist
-
-
-
-
-
-
-
+    return float(np.linalg.norm(source.dim_array - goal.dim_array, ord=np.inf))

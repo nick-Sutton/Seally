@@ -11,7 +11,9 @@ dependencies = [
     "numpy>=2.0",
     "pandas>=3.0",
     "pygame>=2.6",
+    "mypy>=1.0",
 ]
+
 keywords = ["Motion Planning", "AI", "Robotics"]
 authors = [
     { name = "Nicholas Sutton", email = "nicksutton46@gmail.com" }
@@ -33,8 +35,12 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/seally"] 
 
+[tool.hatch.build.targets.wheel.shared-data]
+"src/seally/py.typed" = "seally/py.typed"
+
 [dependency-groups]
 dev = [
     "mkdocs>=1.0,<2.0",
     "mkdocs-material>=9.7.6",
+    "pandas-stubs>=3.0.0.260204",
 ]

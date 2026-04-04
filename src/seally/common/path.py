@@ -1,4 +1,4 @@
-from typing import List, Tuple, Union
-from seally.env.grid_map import GridCell
+from typing import List
+from src.seally.env.enviroment import Position
 
-Path = Union[List[GridCell], List[float]]
+Path = List[Position]
