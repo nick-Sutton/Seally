@@ -1,16 +1,28 @@
 # Reference
 
 ## Planners
-### A* Search
+### A*
 ::: seally.planners.a_star
+
+### Breadth-First Search
+::: seally.planners.bfs
+
+### Depth-First Search
+::: seally.planners.dfs
+
+### Dijkstra's Algorithm
+::: seally.planners.dijkstras
+
+### Greedy Best First Search
+::: seally.planners.gbf
 
 ### Wavefront Search
 ::: seally.planners.wave_front
 
-### D* Search
-::: seally.planners.d_star
+## Environments
+### Enviroment
+::: seally.env.enviroment
 
-## Environment
 ### Grid Map
 ::: seally.env.grid_map
 

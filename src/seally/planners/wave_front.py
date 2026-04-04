@@ -37,7 +37,7 @@ class WaveFront():
             for n in self.env.get_neighbors(current):
                 # The Wave value for each neighbor cell is the current value plus 1
                 if not self.env.is_occupied(n) and n not in self._closed_set:
-                    self.wave_field.map[n.y, n.x] = self.wave_field.map[current.y, current.x] + 1
+                    self.wave_field.map[n.y, n.x] = self.wave_field.map[current.y, current.x] + self.env.get_cost(current, n)
 
                     self._closed_set.add(n) # Add the visited cell to the closed set
                     queue.append(n) # add the cell back into the queue so that it can be visited
@@ -51,8 +51,12 @@ class WaveFront():
             goal: The goal cell in the GridMap.
 
         Returns:
-            The shortest path from source to goal.
+            A path from source to goal.
         """
+
+        # reset class variavbles
+        self.wave_field = copy.deepcopy(self.env)
+        self._closed_set = set()
 
         if not self.env.in_bounds(source) or self.env.is_occupied(source):
             raise Exception("Source is not a valid position")

@@ -2,7 +2,7 @@ from typing import List, Optional
 import numpy as np
 import pandas as pd
 
-from src.seally.env.enviroment import Dimensions, Enviroment, Position
+from seally.env.enviroment import Dimensions, Enviroment, Position
 
 class GridCell(Position):
     """
@@ -13,8 +13,7 @@ class GridCell(Position):
         Initialize a GridCell Object.
 
         Args:
-            x: The x position of the cell.
-            y: The y position of the cell.
+            dims: A Tuple of Integers representing an index into the Grid Map.
         """
         super().__init__(dims) 
         self.x = dims[0]
@@ -37,7 +36,8 @@ class GridMap(Enviroment):
 
         Args:
             gen_random: Boolean for if the Map should be generated randomly.
-            file_path: Path to map file
+            file_path: Path to map file.
+            move_4d: Boolean for if the neighborhood of a given cell includes the cells on its diagonals
         """
         if gen_random:
             pass
@@ -129,9 +129,9 @@ class GridMap(Enviroment):
 
         # create a mask to validate that all cells are in the bounds of the map
         bounds_mask = (
-            (neighbor_indicies[:, 0] >= 0) & (neighbor_indicies[:, 0] < self.x_dim) &
-            (neighbor_indicies[:, 1] >= 0) & (neighbor_indicies[:, 1] < self.y_dim)
+            (neighbor_indicies[:, 0] >= 0) & (neighbor_indicies[:, 0] < self.y_dim) &
+            (neighbor_indicies[:, 1] >= 0) & (neighbor_indicies[:, 1] < self.x_dim)
         )
 
         # apply the bounds map to each coordinate and return only the cells that are in bounds
-        return [GridCell((x, y)) for x, y in neighbor_indicies[bounds_mask]]
+        return [GridCell((col, row)) for row, col in neighbor_indicies[bounds_mask]]

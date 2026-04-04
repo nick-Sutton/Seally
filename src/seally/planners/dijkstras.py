@@ -4,24 +4,22 @@ from typing import Dict, List, Optional, Tuple
 from seally.common.path import Path
 from seally.env.enviroment import Enviroment, Position
 
-class AStar():
+class Dijkstras():
     """
-    A* Algorithm for finding the shortest path between points in a enviroment.
+    Dijkstra's Algorithm for finding the shortest path between points in a enviroment.
     """
-    def __init__(self, env: Enviroment, heuristic: Callable[[Position, Position], float]):
+    def __init__(self, env: Enviroment):
         """
-        Initialize an A* Object.
+        Initialize a Dijkstra's Algorithm Object.
 
         Args:
             env: An Enviroment to Search.
-            heuristic: The "Cost to Go" heuristic. 
         """
         self.env = env
-        self.heuristic = heuristic
 
     def compute_path(self, source: Position, goal: Position) -> Path:
         """
-        Computes the shortest path from the source position to the goal position using the A* Algorithm.
+        Computes the shortest path from the source position to the goal position using Dijkstra's Algorithm.
 
         Args:
             source: The source position in the enviroment.
@@ -63,7 +61,7 @@ class AStar():
                 new_cost = cost_so_far[current] + self.env.get_cost(current, next)
                 if next not in cost_so_far or new_cost < cost_so_far[next]:
                     cost_so_far[next] = new_cost
-                    priority = new_cost + self.heuristic(next, goal)
+                    priority = new_cost
                     tie_count += 1
 
                     heapq.heappush(open_set, (priority, tie_count, next))

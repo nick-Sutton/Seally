@@ -4,16 +4,16 @@ from typing import Dict, List, Optional, Tuple
 from seally.common.path import Path
 from seally.env.enviroment import Enviroment, Position
 
-class AStar():
+class GreedyBestFirst():
     """
-    A* Algorithm for finding the shortest path between points in a enviroment.
+    Greedy Best First Search algorithm for finding paths between points in a enviroment.
     """
     def __init__(self, env: Enviroment, heuristic: Callable[[Position, Position], float]):
         """
-        Initialize an A* Object.
+        Initialize a GBF Object.
 
         Args:
-            env: An Enviroment to Search.
+            env: An Enviroment to search.
             heuristic: The "Cost to Go" heuristic. 
         """
         self.env = env
@@ -21,14 +21,14 @@ class AStar():
 
     def compute_path(self, source: Position, goal: Position) -> Path:
         """
-        Computes the shortest path from the source position to the goal position using the A* Algorithm.
+        Computes a path from the source position to the goal position using the Greedy Best First Search Algorithm.
 
         Args:
             source: The source position in the enviroment.
             goal: The goal position in the enviroment.
 
         Returns:
-            The shortest path from source to goal.
+            A path from source to goal.
         """
 
         if not self.env.in_bounds(source) or self.env.is_occupied(source):
@@ -42,7 +42,6 @@ class AStar():
         heapq.heappush(open_set, (0.0, tie_count, source))
 
         came_from: Dict[Position, Optional[Position]] = {source: None}
-        cost_so_far: Dict[Position, float] = {source: 0.0}
         closed_set = set()  # track fully explored cells
 
         while open_set:
@@ -60,10 +59,8 @@ class AStar():
                 if self.env.is_occupied(next) or next in closed_set:
                     continue
 
-                new_cost = cost_so_far[current] + self.env.get_cost(current, next)
-                if next not in cost_so_far or new_cost < cost_so_far[next]:
-                    cost_so_far[next] = new_cost
-                    priority = new_cost + self.heuristic(next, goal)
+                if next not in came_from:
+                    priority = self.heuristic(next, goal)
                     tie_count += 1
 
                     heapq.heappush(open_set, (priority, tie_count, next))
