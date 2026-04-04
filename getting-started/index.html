@@ -559,7 +559,7 @@ First, let's import the components of Seally that we will need to create an envi
 <p><strong>Load an enviroment from a file</strong>: 
 To perform planning we first need an environment and a discretization of that environment. In this example, we are going to use the A* algorithm. A* is well suited for grid environments and in Seally, A* works on GridMap environments.
     <div class="highlight"><pre><span></span><code><span class="c1"># Create an enviroment from a map file</span>
-<span class="n">env</span><span class="p">:</span> <span class="n">GridMap</span> <span class="o">=</span> <span class="n">GridMap</span><span class="p">(</span><span class="n">gen_random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;./maps/map7.csv&#39;</span><span class="p">)</span>
+<span class="n">env</span><span class="p">:</span> <span class="n">GridMap</span> <span class="o">=</span> <span class="n">GridMap</span><span class="p">(</span><span class="n">gen_random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;./maps/map7.csv&#39;</span><span class="p">,</span> <span class="n">move_4d</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -573,8 +573,8 @@ Next, we need to define a planner that we can use to find a path between points 
 <p><strong>Generate a Path between two positions</strong>: 
 Finally, we can generate a path by defining a start and goal position in the environment. Then we run the A* algorithm on these positions. A* returns a Path which is a Tuple of GridCells.
     <div class="highlight"><pre><span></span><code><span class="c1"># Define the source and goal positions</span>
-<span class="n">source</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">goal</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">goal</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">((</span><span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">))</span>
 
 <span class="c1"># Find the shortest path from the start to the goal</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">a_star</span><span class="o">.</span><span class="n">compute_path</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">goal</span><span class="p">)</span>
@@ -598,14 +598,14 @@ We can visual enviroments and paths using Seally's visualization tools.
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create an enviroment from a map file</span>
-    <span class="n">env</span><span class="p">:</span> <span class="n">GridMap</span> <span class="o">=</span> <span class="n">GridMap</span><span class="p">(</span><span class="n">gen_random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;./maps/map7.csv&#39;</span><span class="p">)</span>
+    <span class="n">env</span><span class="p">:</span> <span class="n">GridMap</span> <span class="o">=</span> <span class="n">GridMap</span><span class="p">(</span><span class="n">gen_random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;./maps/map7.csv&#39;</span><span class="p">,</span> <span class="n">move_4d</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># Create a planner and pass in the heuristic</span>
     <span class="n">a_star</span> <span class="o">=</span> <span class="n">AStar</span><span class="p">(</span><span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span> <span class="n">heuristic</span><span class="o">=</span><span class="n">chebyshev_distance</span><span class="p">)</span>
 
     <span class="c1"># Define the source and goal positions</span>
-    <span class="n">source</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">goal</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">goal</span> <span class="o">=</span> <span class="n">GridCell</span><span class="p">((</span><span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">))</span>
 
     <span class="c1"># Find the shortest path from the start to the goal</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">a_star</span><span class="o">.</span><span class="n">compute_path</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">goal</span><span class="p">)</span>
