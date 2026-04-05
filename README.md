@@ -1,6 +1,6 @@
 # Seally 🦭
 
-**A lightweight Python library for motion planning algorithms.**
+**A lightweight Python library for planning algorithms.**
 
 Seally provides a simple interface for using, implementing, and testing planning algorithms.
 
