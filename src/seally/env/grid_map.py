@@ -2,7 +2,7 @@ from typing import List, Optional
 import numpy as np
 import pandas as pd
 
-from seally.env.enviroment import Dimensions, Enviroment, Position
+from seally.env.environment import Dimensions, Environment, Position
 
 class GridCell(Position):
     """
@@ -25,7 +25,7 @@ class GridCell(Position):
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
 
-class GridMap(Enviroment):
+class GridMap(Environment):
     """
     Grid based discritization of an enviroment. GridMaps store enviroments as a numpy array 
     where the value at each cell is either 0 if the cell is free and 1 if it is occupied.

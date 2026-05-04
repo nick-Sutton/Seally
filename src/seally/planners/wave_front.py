@@ -12,7 +12,7 @@ class WaveFront():
         Initialize a WaveFront Object.
 
         Args:
-            env: A grid base enviroment.
+            env: A grid base environment.
         """
         self.env = env
         self.wave_field = copy.deepcopy(env)

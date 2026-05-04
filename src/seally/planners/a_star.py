@@ -2,18 +2,18 @@ from collections.abc import Callable
 import heapq
 from typing import Dict, List, Optional, Tuple
 from seally.common.path import Path
-from seally.env.enviroment import Enviroment, Position
+from seally.env.environment import Environment, Position
 
 class AStar():
     """
-    A* Algorithm for finding the shortest path between points in a enviroment.
+    A* Algorithm for finding the shortest path between points in an environment.
     """
-    def __init__(self, env: Enviroment, heuristic: Callable[[Position, Position], float]):
+    def __init__(self, env: Environment, heuristic: Callable[[Position, Position], float]):
         """
         Initialize an A* Object.
 
         Args:
-            env: An Enviroment to Search.
+            env: An Environment to Search.
             heuristic: The "Cost to Go" heuristic. 
         """
         self.env = env
@@ -24,8 +24,8 @@ class AStar():
         Computes the shortest path from the source position to the goal position using the A* Algorithm.
 
         Args:
-            source: The source position in the enviroment.
-            goal: The goal position in the enviroment.
+            source: The source position in the environment.
+            goal: The goal position in the environment.
 
         Returns:
             The shortest path from source to goal.

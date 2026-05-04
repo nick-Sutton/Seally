@@ -22,7 +22,7 @@ class Position(ABC):
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
 
-class Enviroment(ABC):
+class Environment(ABC):
     @abstractmethod
     def get_cost(self, start: Position, end: Position) -> float:
         pass

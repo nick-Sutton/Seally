@@ -1,7 +1,7 @@
 from typing import List
 import numpy as np
 import pandas as pd
-from seally.env.enviroment import Position, Enviroment, Dimensions
+from seally.env.environment import Position, Environment, Dimensions
 
 # https://bink.eu.org/fast-voxel-datastructures/
 

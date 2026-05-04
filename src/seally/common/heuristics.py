@@ -1,6 +1,6 @@
 import numpy as np
 
-from seally.env.enviroment import Position
+from seally.env.environment import Position
 
 
 def euclidean_distance(source: Position, goal: Position) -> float:

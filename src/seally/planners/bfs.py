@@ -1,18 +1,18 @@
 from collections import deque
 from typing import List, Optional
 from seally.common.path import Path
-from seally.env.enviroment import Enviroment, Position
+from seally.env.environment import Environment, Position
 
 class BFS():
     """
-    Breadth First Search algorithm for finding paths between points in a enviroment.
+    Breadth First Search algorithm for finding paths between points in an environment.
     """
-    def __init__(self, env: Enviroment):
+    def __init__(self, env: Environment):
         """
         Initialize a BFS Object.
 
         Args:
-            env: An Enviroment to search.
+            env: An Environment to search.
         """
         self.env = env
 
@@ -21,8 +21,8 @@ class BFS():
         Computes a path from the source position to the goal position using the Breadth First Search Algorithm.
 
         Args:
-            source: The source position in the enviroment.
-            goal: The goal position in the enviroment.
+            source: The source position in the environment.
+            goal: The goal position in the environment.
 
         Returns:
             A path from source to goal.
